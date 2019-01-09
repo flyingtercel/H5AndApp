@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>web</title>
+
+    <style>
+        div{
+            width:0 auto;
+            height:50px;
+            border:2px block;
+        }
+
+
+    </style>
+    <script>
+       function callJS(){
+          //alert("Android调用了JS的callJS方法");
+          var title = document.querySelector('h1');
+            title.textContent='改变之后的值';
+
+            return '能不能返回';
+       }
+       function callAndroid1(){
+            var num = Math.random()*100;
+            android.toAndroid("这是一个函数 "+num);
+
+       }
+       function callAndroid2(){
+
+            document.location="js://www.webview.com?arg1=111&arg2=111";
+       }
+       function callAndroid3(){
+            var result = prompt('js://www.webview.com?arg1=111&arg2=111');
+            var h2Title = document.querySelector('h2')
+            h2Title.textContent=result;
+       }
+
+
+    </script>
+
+        <body>
+            <div>
+                <h1>我是标题一</h1>
+            </div>
+
+            <div>
+                <h2>我是测试标题二</h2>
+            </div>
+
+            <div>
+                <button type="button" id="button1" onclick="callAndroid1()">调用Android的方法一</button>
+            </div>
+
+            <div>
+                <button type="button" id="button02" onclick="callAndroid2()">调用Android的方法二</button>
+            </div>
+
+            <div>
+                <button type="button" id="button03" onclick="callAndroid3()">调用Android的方法三</button>
+            </div>
+
+            <div>
+                <img src=".././res/mipmap-hdpi/ic_launcher.png" alt="加载错误"/>
+            </div>
+
+
+        </body>
+
+    </head>
+
+</html>
